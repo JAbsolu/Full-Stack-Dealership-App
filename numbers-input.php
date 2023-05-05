@@ -84,8 +84,6 @@
             </span>
             <img src="img/jetta.png" class="img-fluid" >
          </div>
-        <!-- Dont' delete this line -->
-         <!--  Okay to put HTML BELOW THIS LINE --> 
       </div>
       <?php include("inc/footer.php"); ?>
    </body>
