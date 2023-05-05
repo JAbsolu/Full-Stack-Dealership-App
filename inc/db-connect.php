@@ -1,32 +1,32 @@
 <?php // Use this connection script to access your student MySQL database
 
 // Set needed variables to run this script
-$myHost   = 'csc269-01.hcc-computerscience.com';    // You will need to set this to your ##
+$myHost   = 'csc269-01.hcc-computerscience.com'; 
 $thisHost = $_SERVER['HTTP_HOST'];                  // Gets the current HOST name
 
-$testOn   = false;               // Set to true to show variables, Keep it "false" most of the time .. VERY IMPORTANT!!!!
+$testOn   = false;               // Set to true to show variables, Keep it "false" most of the time.
 $isError  = false;              // Used for error handling
 
 // Set the database access information as constants based on SERVER:
 switch ($thisHost){
 	case 'localhost':
-		define('DB_USER',     'student01');                // You will need to set this to YOUR ##
+		define('DB_USER',     'student01');                
 		define('DB_PASSWORD', 'LearnDataBase3000');        // Verify password is correct
 		define('DB_HOST',     'localhost');                // Use 'localhost' as the DB_HOST
-		define('DB_NAME',     'student01');                // You will need to set this to YOUR ##
+		define('DB_NAME',     'student01');                
 		break;
 	case $myHost:       
-		define('DB_USER',     'hcccomps_stu01');           // You will need to set this to YOUR ## 
+		define('DB_USER',     'hcccomps_stu01');           
 		define('DB_PASSWORD', 'LearnDataBase3000');        // Verify password is correct
 		define('DB_HOST',     'localhost');                // Use 'localhost' as the DB_HOST
-		define('DB_NAME',     'hcccomps_studentDB-01');    // You will need to set this to YOUR ##
+		define('DB_NAME',     'hcccomps_studentDB-01');    
 		break;
 	default:
-		$isError      = true;                              // This means YOU HAVE AN ERROR
+		$isError      = true;                              // This means THERE IS AN ERROR
 		$errorMessage = "<h4 class='error'>ERROR: $thisHost not in configuration setup. Check \$myHost variable.</h4>\n";
 }
 
-if ($isError) {	print $errorMessage; }    // Prints $errorMessage to let you know there is an issue.
+if ($isError) {	print $errorMessage; }    // Prints $errorMessage;
 
 if ($testOn) {
 	print "<p>Hostname: $thisHost</p>\n";
