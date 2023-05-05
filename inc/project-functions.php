@@ -1,12 +1,6 @@
 <?php 
 // ------------------------------------------- Set up configuration variables
-$websiteName = "810 Application Project";
-$myName = "Johnson Absolu";
-
-function newFunction() {
-    //function code here
-    return;
-}
+$websiteName = "Application Project";
 // ----------------------------------------------------- CREATE TABLE FUNCTIONS
 function create_carsTable($tableName) {
     $sqlStatement = "CREATE TABLE $tableName (
