@@ -3,12 +3,12 @@
     <?php  include("inc/project-functions.php"); ?>
 <head>
     <meta charset="UTF-8">
-    <title>fp99--build-project-tables.php</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/favicon.png" href="img/favicon.png">
     <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/project-style.css">
+    <title>Build Project Tables</title>
 </head>
 <body>
 <main class="container m-0">

@@ -18,15 +18,13 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact us</a>
         </li>
-        <li class="nav-item dropdown text-dark">
+        <!-- <li class="nav-item dropdown text-dark">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="admin">Tables</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="fp99-build-project-tables.php">Build Tables</a></li>
-            <!-- <li><a class="dropdown-item" href="fp99-view-project-tables.php">View tables</a></li> -->
             <li><a class="dropdown-item" href="fp99-view-project-tables.php">View Tables</a></li>
-            <!-- <li><a class="dropdown-item" href="fp-gallery.php">View a car</a></li> -->
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

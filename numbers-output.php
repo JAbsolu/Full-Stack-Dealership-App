@@ -25,95 +25,91 @@
             payment, etc.
          </p>
     </div>
-<?php
-
+    <?php
+        $firstName = $_POST['firstName']; //get first name
+        $lastName = $_POST['lastName']; //get last name
+        $income = $_POST['income']; //get income
+        $downPayment = $_POST['downPayment']; //get down payment
+        $vehicle = $_POST['vehicle']; //get car
+        $term = $_POST['term']; //get the term
+        $trade = $_POST['trade']; //get the trade value
+        $interest = $_POST['interest']; // get interest
     
-
-   
-    $firstName = $_POST['firstName']; //get first name
-    $lastName = $_POST['lastName']; //get last name
-    $income = $_POST['income']; //get income
-    $downPayment = $_POST['downPayment']; //get down payment
-    $vehicle = $_POST['vehicle']; //get car
-    $term = $_POST['term']; //get the term
-    $trade = $_POST['trade']; //get the trade value
-    $interest = $_POST['interest']; // get interest
-  
-    // extract decimal numbers with optional thousands separator and decimal point
-    preg_match_all('/\d{1,3}(?:,\d{3})*\.\d+/', $vehicle, $matches);
-    // loop through the matches and convert them to numbers
-    foreach ($matches[0] as $match) {
-        $price = floatval(str_replace(',', '', $match));
-    }
-
-    //format full me
-    $fullName = trim($firstName) . " " . trim($lastName);
-
-    //format interest
-    $interest_formatted = $interest . "%";
-
-    //format 5 figure income 10,000
-    if (strlen($income) == 4) $formatted_income = "$" . number_format($income, 0);
-    //format 6 figure income 100,000
-    if (strlen($income) == 5) $formatted_income = "$" . number_format($income, 2);
-    //format 7 figure income 1,000,000
-    if (strlen($income) == 6) $formatted_income = "$" . number_format($income, 2, '.', ',');
+        // extract decimal numbers with optional thousands separator and decimal point
+        preg_match_all('/\d{1,3}(?:,\d{3})*\.\d+/', $vehicle, $matches);
+        // loop through the matches and convert them to numbers
+        foreach ($matches[0] as $match) {
+            $price = floatval(str_replace(',', '', $match));
+        }
     
-
-
-    //format downpayment
-    $formatted_DPayment = "$" . $downPayment;
-    //format down payment for numbers over 999
-    if (strlen($downPayment) == 4) $formatted_DPayment = "$" . number_format($downPayment, 0);
-    //format down payment for numbers over 9999
-    if (strlen($downPayment) == 5) $formatted_DPayment = "$" . number_format($downPayment, 2);
-
-    //format trade value
-    $formatted_trade = "$" .$trade;
-    //four figure formatting
-    if (strlen($trade) == 4) $formatted_trade = "$" . substr($trade, 0,1) . "," . substr($trade, 1);
-    //five figure formating
-    if (strlen($trade) == 5) $formatted_trade = "$" . substr($trade, 0,2) . "," . substr($trade, 2);
-
-    //format price
-    $formatted_price = "$" . $price;
-    //format 5 figure prices
-    if (strlen($price) == 5) $formatted_price = "$" . substr($price, 0,2) . "," . substr($price, 2);
-    //format 6 figure prices
-    if (strlen($price) == 6) $formatted_price = "$" . substr($price, 0,3) . "," . substr($price, 3);
-
-
-    //calculate monthly payment 
-    $formatInterest = $interest / 100; // format the intetrest
-    $totalDeduction = $downPayment + $trade; // get the total amount to be deducted
-    $totalPreInterest = $price - $totalDeduction; //total before adding interest
-    $yearlyInterest = $totalPreInterest * $formatInterest; //the total interest in dollars
-    $lifeTimeInterest = ($yearlyInterest / 12) * $term; // lifetime itnerest
-
-    $totalPrice = $totalPreInterest + $lifeTimeInterest; // the total including lifetime interest
-    $totalPriceRounded = round($totalPrice, 2); // round total price to 2 decimals
-    $formatTotalPrice = "$" . substr($totalPriceRounded, 0,2) . "," . substr($totalPriceRounded, 2); //formatted total price with interest
-    $monthlyPayment = $totalPrice / $term; //total Monthly payment
-
-    //get customer monthly income
-    $monthly_income = $income / 13; //13 being 52 weeks in a year which ads up to 13 months
-    $monthly_income = round($monthly_income);
-    $monthly_leftOver = $monthly_income - $monthlyPayment;
-    $monthly_leftOver = round($monthly_leftOver);
-
-    //format monthly payment
-    $monthly_income_formatted = "$" . $monthly_income;
-    //4 figure format
-    if (strlen($monthly_income) == 4) $monthly_income_formatted = "$" . substr($monthly_income, 0,1) . "," . substr($monthly_income, 1);
-    //5 figure format
-    if (strlen($monthly_income) == 5) $monthly_income_formatted = "$" . substr($monthly_income, 0,2) . "," . substr($monthly_income, 2);
-    //format monthly income left over
-    $monthly_leftOver_formatted = "$" . $monthly_leftOver;
-    //4 figure format
-    if (strlen($monthly_leftOver) == 4) $monthly_leftOver_formatted = "$" . substr($monthly_leftOver, 0,1) . "," . substr($monthly_leftOver, 1);
-    //5 figure format
-    if (strlen($monthly_leftOver) == 5) $monthly_leftOver_formatted = "$" . substr($monthly_leftOver, 0,2) . "," . substr($monthly_leftOver, 2);
-?>
+        //format full me
+        $fullName = trim($firstName) . " " . trim($lastName);
+    
+        //format interest
+        $interest_formatted = $interest . "%";
+    
+        //format 5 figure income 10,000
+        if (strlen($income) == 4) $formatted_income = "$" . number_format($income, 0);
+        //format 6 figure income 100,000
+        if (strlen($income) == 5) $formatted_income = "$" . number_format($income, 2);
+        //format 7 figure income 1,000,000
+        if (strlen($income) == 6) $formatted_income = "$" . number_format($income, 2, '.', ',');
+        
+    
+    
+        //format downpayment
+        $formatted_DPayment = "$" . $downPayment;
+        //format down payment for numbers over 999
+        if (strlen($downPayment) == 4) $formatted_DPayment = "$" . number_format($downPayment, 0);
+        //format down payment for numbers over 9999
+        if (strlen($downPayment) == 5) $formatted_DPayment = "$" . number_format($downPayment, 2);
+    
+        //format trade value
+        $formatted_trade = "$" .$trade;
+        //four figure formatting
+        if (strlen($trade) == 4) $formatted_trade = "$" . substr($trade, 0,1) . "," . substr($trade, 1);
+        //five figure formating
+        if (strlen($trade) == 5) $formatted_trade = "$" . substr($trade, 0,2) . "," . substr($trade, 2);
+    
+        //format price
+        $formatted_price = "$" . $price;
+        //format 5 figure prices
+        if (strlen($price) == 5) $formatted_price = "$" . substr($price, 0,2) . "," . substr($price, 2);
+        //format 6 figure prices
+        if (strlen($price) == 6) $formatted_price = "$" . substr($price, 0,3) . "," . substr($price, 3);
+    
+    
+        //calculate monthly payment 
+        $formatInterest = $interest / 100; // format the intetrest
+        $totalDeduction = $downPayment + $trade; // get the total amount to be deducted
+        $totalPreInterest = $price - $totalDeduction; //total before adding interest
+        $yearlyInterest = $totalPreInterest * $formatInterest; //the total interest in dollars
+        $lifeTimeInterest = ($yearlyInterest / 12) * $term; // lifetime itnerest
+    
+        $totalPrice = $totalPreInterest + $lifeTimeInterest; // the total including lifetime interest
+        $totalPriceRounded = round($totalPrice, 2); // round total price to 2 decimals
+        $formatTotalPrice = "$" . substr($totalPriceRounded, 0,2) . "," . substr($totalPriceRounded, 2); //formatted total price with interest
+        $monthlyPayment = $totalPrice / $term; //total Monthly payment
+    
+        //get customer monthly income
+        $monthly_income = $income / 13; //13 being 52 weeks in a year which ads up to 13 months
+        $monthly_income = round($monthly_income);
+        $monthly_leftOver = $monthly_income - $monthlyPayment;
+        $monthly_leftOver = round($monthly_leftOver);
+    
+        //format monthly payment
+        $monthly_income_formatted = "$" . $monthly_income;
+        //4 figure format
+        if (strlen($monthly_income) == 4) $monthly_income_formatted = "$" . substr($monthly_income, 0,1) . "," . substr($monthly_income, 1);
+        //5 figure format
+        if (strlen($monthly_income) == 5) $monthly_income_formatted = "$" . substr($monthly_income, 0,2) . "," . substr($monthly_income, 2);
+        //format monthly income left over
+        $monthly_leftOver_formatted = "$" . $monthly_leftOver;
+        //4 figure format
+        if (strlen($monthly_leftOver) == 4) $monthly_leftOver_formatted = "$" . substr($monthly_leftOver, 0,1) . "," . substr($monthly_leftOver, 1);
+        //5 figure format
+        if (strlen($monthly_leftOver) == 5) $monthly_leftOver_formatted = "$" . substr($monthly_leftOver, 0,2) . "," . substr($monthly_leftOver, 2);
+    ?>
 
     <div class="container-fluid py-5 px-4 bg-light rounded w-100">
         <div class="row">

@@ -23,15 +23,6 @@
          </p>
       </div>
       <div class="row pe-0 mw-100">
-         <?php 
-             //set default value of variables for initial page load
-            if (!isset($price)) { $price = 20655; } 
-            if (!isset($trade)) { $years = 0; } 
-            ini_set('display_error',1);    // Makes sures error display is on  1=on 0=off
-
-            $interest_rate = 5.07;
-            $interest_rate_formatted = $interest_rate . "%";
-         ?>
          <!-- This section is for the DATA INPUT FORM -->  
          <div class="col-md-6 px-0">
             <form action="numbers-output.php" method="post" class="py-4 ps-5 pe-4 rounded" autocomplete="on">

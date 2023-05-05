@@ -1,8 +1,4 @@
-<!-- <?php
-    // error_reporting(E_ALL);
-    // ini_set('display_errors', '1');
-    ?> -->
-    <?php include("inc/project-functions.php"); ?>
+<?php include("inc/project-functions.php"); ?>
     <?php include("inc/db-connect.php"); ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -193,10 +189,9 @@
             }
          ?>
         
-    
+        <!-- ------INCLUDE THE FOOTER -->
         <?php include("inc/footer.php"); ?>
     </div>
-        
     </body>
-    </html>
+</html>
     

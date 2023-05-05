@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-   <!-- Set variables to use in this page -->
    <?php include("inc/project-functions.php") ?>
    <head>
       <meta charset="utf-8">
-      <!-- The next 3 lines are needed for Bootstrap 5 -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <script src="js/bootstrap.bundle.min.js"></script>
-      <!-- This is YOUR custom css file -->
       <link href="css/project-style.css" rel="stylesheet">
       <link rel="icon" type="image/favicon.png" href="img/favicon.png">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">

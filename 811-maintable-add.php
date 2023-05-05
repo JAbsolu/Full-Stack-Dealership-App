@@ -12,7 +12,7 @@
 <main class="container mt-5">
     <?php include("inc/800-nav.php"); ?>
     <?php include("inc/800-header.php"); ?>
-    <h2>811-maintable-add.php</h2>
+    <h2>Main Table</h2>
 <hr>
 <?php // ----------------------------------------- START of PHP CODE
 print "<div class='row'><div class='col-md-12'>";      //  One <row> and <col> for this page
@@ -31,15 +31,6 @@ $comments   = htmlentities($_POST['comments']);  // REVISED 4/13
 $price      = $_POST['price'];
 $cost       = $_POST['cost'];
 $active     = $_POST['active'];
-
-//print "<h4>$colorId</h4>\n";
-//print "<h4>$categoryId</h4>\n";
-//print "<h4>$thisName</h4>\n";
-//print "<h4>$someDate</h4>\n";
-//print "<h4>$comments</h4>\n";
-//print "<h4>$price</h4>\n";
-//print "<h4>$cost</h4>\n";
-//print "<h4>$active</h4>\n";
 
 print "<h3>DOING THE ADD NOW!!</h3>\n";
     $tableName = 'maintable';
