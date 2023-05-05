@@ -5,7 +5,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Payment Calculator </title>
+      <title>Calculate a payment</title>
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <script src="js/bootstrap.bundle.min.js"></script>
       <link href="css/project-style.css" rel="stylesheet">
