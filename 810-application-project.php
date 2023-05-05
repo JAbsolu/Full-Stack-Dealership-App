@@ -1,11 +1,6 @@
 <?php 
 // ------------------------------------------- Set up configuration variables
 $websiteName = "< <b>Application Project</b> >";
-$myName = "Prof. Paul Gruhn";
-function newFunction() {
-    //function code here
-    return;
-}
 // ----------------------------------------------------- CREATE TABLE FUNCTIONS
 function create_carsTable($tableName) {
     $sqlStatement = "CREATE TABLE $tableName (
@@ -328,36 +323,41 @@ function listMainTable($thisTable, $results) {
     displayTableName($thisTable);
     if ($results) {
         print "<table class='table table-striped table-bordered'>\n";
-        print "<tr>
-        <th class='text-left'>RecId</th>
-        <th class='text-left'>Color</th>
-        <th class='text-left'>Category</th>
-        <th class='text-left'>ThisName</th>
-        <th class='text-left'>SomeDate</th>
-        <th class='text-left'>Comments</th>
-        <th class='text-end'>Price</th>  
-        <th class='text-end'>Cost</th> 
-        <th class='text-center'>Active</th> 
-        <th class='text-center'>Update</th> 
-        <th class='text-center'>Delete</th> 
-        </tr>\n";
+        print ("
+            <tr>
+                <th class='text-left'>RecId</th>
+                <th class='text-left'>Color</th>
+                <th class='text-left'>Category</th>
+                <th class='text-left'>ThisName</th>
+                <th class='text-left'>SomeDate</th>
+                <th class='text-left'>Comments</th>
+                <th class='text-end'>Price</th>  
+                <th class='text-end'>Cost</th> 
+                <th class='text-center'>Active</th> 
+                <th class='text-center'>Update</th> 
+                <th class='text-center'>Delete</th> 
+            </tr>
+        \n");
        
     while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
         $thisId = $row['id'];
         $thisIdLink = '<a href=\'814-viewThisRecord.php?thisTable=$thisTable&thisId=$thisId\' title=\'Click me to view this record.\'>' . $thisId . '</a>';
         $updateColumns = getUpdateColumns($thisTable,$thisId);
         $active = $row['active'] ? 'true' : 'false';
-        print "<tr>
-        <td>"                     . $thisIdLink                        . "</td>
-        <td>"                     . $row['color_id']               . "</td>
-        <td>"                     . $row['category_id']            . "</td>
-        <td>"                     . $row['this_name']              . "</td>
-        <td>"                     . $row['some_date']              . "</td>
-        <td>"                     . $row['comments']               . "</td>
-        <td class='text-end'>"    . number_format($row['price'],2) . "</td>
-        <td class='text-end'>  "  . number_format($row['cost'],2)  . "</td>
-        <td class='text-center'>" . $active                        . "</td>
-        $updateColumns</tr>\n";
+        print ("
+            <tr>
+                <td>"                     . $thisIdLink                        . "</td>
+                <td>"                     . $row['color_id']               . "</td>
+                <td>"                     . $row['category_id']            . "</td>
+                <td>"                     . $row['this_name']              . "</td>
+                <td>"                     . $row['some_date']              . "</td>
+                <td>"                     . $row['comments']               . "</td>
+                <td class='text-end'>"    . number_format($row['price'],2) . "</td>
+                <td class='text-end'>  "  . number_format($row['cost'],2)  . "</td>
+                <td class='text-center'>" . $active                        . "</td>
+                $updateColumns
+           </tr>
+        \n");
     }
         displayRowCounter($thisTable, $results,11);
     }
@@ -369,35 +369,41 @@ function listMainTable2($thisTable, $results) {
     displayTableName($thisTable);
     if ($results) {
         print "<table class='table table-striped table-bordered'>\n";
-        print "<tr>
-        <th class='text-center'>RecId</th>
-        <th class='text-start'>Color</th>
-        <th class='text-start'>Category</th>
-        <th class='text-start'>ThisName</th>
-        <th class='text-start'>SomeDate</th>
-        <th class='text-start'>Comments</th>
-        <th class='text-end'>Price</th>  
-        <th class='text-end'>Cost</th> 
-        <th class='text-center'>Active</th> 
-        <th class='text-center'>Update</th> 
-        <th class='text-center'>Delete</th> 
-        </tr>\n";  
+        print ("
+            <tr>
+                <th class='text-center'>RecId</th>
+                <th class='text-start'>Color</th>
+                <th class='text-start'>Category</th>
+                <th class='text-start'>ThisName</th>
+                <th class='text-start'>SomeDate</th>
+                <th class='text-start'>Comments</th>
+                <th class='text-end'>Price</th>  
+                <th class='text-end'>Cost</th> 
+                <th class='text-center'>Active</th> 
+                <th class='text-center'>Update</th> 
+                <th class='text-center'>Delete</th> 
+            </tr>
+        \n");  
     while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
         $thisId        = $row['RecordId'];
         $thisIdLink    = "<a href='814-viewThisRecord.php?thisTable=". $thisTable . "&thisId=" . $thisId . "' title='Click me to view this record.'>" . $thisId . "</a>";    
         $updateColumns = getUpdateColumns($thisTable,$thisId);
         $active        = $row['active'] ? 'true' : 'false';
-        print "<tr>
-        <td class='text-center'>" . $thisIdLink                        . "</td>
-        <td>"                     . $row['colorName']               . "</td>
-        <td>"                     . $row['categoryName']            . "</td>
-        <td>"                     . $row['this_name']              . "</td>
-        <td>"                     . $row['some_date']              . "</td>
-        <td>"                     . $row['comments']               . "</td>
-        <td class='text-end'>"    . number_format($row['price'],2) . "</td>
-        <td class='text-end'>  "  . number_format($row['cost'],2)  . "</td>
-        <td class='text-center'>" . $active                        . "</td>
-        $updateColumns</tr>\n";
+        print ("
+            <tr>
+                <td class='text-center'>" . $thisIdLink                        . "</td>
+                <td>"                     . $row['colorName']               . "</td>
+                <td>"                     . $row['categoryName']            . "</td>
+                <td>"                     . $row['this_name']              . "</td>
+                <td>"                     . $row['some_date']              . "</td>
+                <td>"                     . $row['comments']               . "</td>
+                <td class='text-end'>"    . number_format($row['price'],2) . "</td>
+                <td class='text-end'>  "  . number_format($row['cost'],2)  . "</td>
+                <td class='text-center'>" . $active                        . "</td>
+                $updateColumns
+            </tr>
+        
+        \n");
     } // END while() loop
     displayRowCounter($thisTable, $results,11);
     } // END if($results)
