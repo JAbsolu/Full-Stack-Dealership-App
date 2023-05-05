@@ -33,17 +33,6 @@ $thisPrice       = $_POST['price'];
 $thisUnits       = $_POST['units'];
 $isAvailable     = $_POST['isAvailable'];
 
-
-
-//print "<h4>$colorId</h4>\n";
-//print "<h4>$categoryId</h4>\n";
-//print "<h4>$thisName</h4>\n";
-//print "<h4>$someDate</h4>\n";
-//print "<h4>$comments</h4>\n";
-//print "<h4>$price</h4>\n";
-//print "<h4>$cost</h4>\n";
-//print "<h4>$active</h4>\n";
-
 // print "<h3>DOING THE ADD NOW!!</h3>\n";
     $tableName = 'cars';
 
@@ -91,4 +80,6 @@ if($closeResult) {//echo "<p >Database closed - Process completed.</p>";
 print "</div></div>"; 
 ?> <!-- -------------------------------------------- END of PHP CODE -->
 <?php include("inc/800-footer.php"); ?>
-</main></body></html>
+</main>
+</body>
+</html>
