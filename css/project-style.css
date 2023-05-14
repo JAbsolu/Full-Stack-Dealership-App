@@ -3,10 +3,6 @@ h2, h3, h4, h5, .h5, .text-blue {
     color: #00295c;
 }
 
-/* .banner {
-    background-image: url('img/homepage.png');
-} */
-
 .navbar-brand {
     color: #00295c;
 }
@@ -21,6 +17,12 @@ h2, h3, h4, h5, .h5, .text-blue {
 
 .bg-secondary {
     background-color: rgb(12 62 146) !important;
+}
+
+
+/* custom bootstrap styles */
+.accordion-button:not(.collapsed) {
+    color: rgb(0, 30, 80) !important;
 }
 
 .img-hover:hover {
