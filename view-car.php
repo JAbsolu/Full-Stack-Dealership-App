@@ -184,6 +184,39 @@
                         <a href='numbers-input.php' class='text-decoration-none px-3 py-3 bg-primary shadow rounded text-light'> Calculate payment </a>
                     </div>
                 ");
+                // switch statement to echo the right car description based on model
+                $description = '';
+                switch ($model) {
+                    case 'Jetta':
+                       $description = include('inc/components/jetta.php');
+                       break;
+                    case 'Passat':
+                       $description = include('inc/components/passat.php');
+                       break;
+                   case 'Arteon':
+                       $description = include('inc/components/arteon.php');
+                       break;
+                    case 'Tiguan':
+                       $description = include('inc/components/tiguan.php');
+                       break;
+                   case 'Taos':
+                      $description = include('inc/components/taos.php');
+                      break;
+                   case 'Atlas':
+                      $description = include('inc/components/atlas.php');
+                      break;
+                   case 'ID4':
+                       $description = include('inc/components/id-four.php');
+                       break;
+                   case 'Golf-GTI':
+                       $description = include('inc/components/golf-git.php');
+                       break;
+                   default:
+                      $description = '';
+                      break;
+                }
+                //end of switch statement
+
                 echo "</div>";  //end of col2 md-4
                 echo "</div>";
             }

@@ -38,7 +38,7 @@
                <img src='img/Cross-Sport.png' alt='Atlas cross sport' width='99%'>
             </div>
             <div class="col-md-5 pt-4 px-2 bg-light ">
-               <?php include("inc/pageTexts/aboutAtlas.php");?>
+               <?php include("inc/texts/aboutAtlas.php");?>
             </div>
          </div>
 

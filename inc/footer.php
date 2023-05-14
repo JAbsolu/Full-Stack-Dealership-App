@@ -14,7 +14,7 @@
           </p>
         </div>
         <div>
-          <p class="h5 mb-4" style="font-weight: 600">Quick links</p>
+          <p class="h5 mb-4 fs-5 me-2">Quick links</p>
           <ul class="p-0" style="list-style: none; cursor: pointer">
             <li class="my-2">
               <a class="text-dark text-decoration-none footer-links" href="about.php">About us</a>
@@ -26,7 +26,7 @@
           </ul>
         </div>
         <div>
-          <p class="h5 mb-4" style="font-weight: 600">Other links</p>
+          <p class="h5 mb-4 fs-5 me-2">Other links</p>
           <ul class="p-0" style="list-style: none; cursor: pointer">
             <li class="my-2">
               <a class="text-dark text-decoration-none footer-links" href="contact.php">Support</a>
@@ -40,7 +40,7 @@
           </ul>
         </div>
         <div>
-          <p class="h5 mb-4" style="font-weight: 600">More on JVW</p>
+          <p class="h5 mb-4 fs-5 me-2">More on JVW</p>
           <ul class="p-0" style="list-style: none; cursor: pointer">
             <li class="my-2">
               <a class="text-dark text-decoration-none footer-links" href="about.php">Locations</a>
