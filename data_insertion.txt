@@ -1,3 +1,4 @@
+//to insert data to database, copy and paste everything in the db-connect.php file, nested in the inc folder
 //new connection to access db
 $new_connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
 
