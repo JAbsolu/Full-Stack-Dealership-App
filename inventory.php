@@ -1,5 +1,10 @@
-<?php include("inc/project-functions.php"); ?>
-<?php include("inc/db-connect.php"); ?>
+<?php 
+error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+?>
+<?php include "config.php"; ?>
+<?php include "inc/project-functions.php"; ?>
+<?php include "inc/db-connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +23,13 @@
     <?php include("inc/800-nav.php") ?>
 
     <?php
+        //connect to db
+        $connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
         $thisTable = 'cars';
-        $carsSqlStatement = "SELECT * FROM $thisTable";
-        $carResult = mysqli_query($dbc, $carsSqlStatement);
+        $carsSqlStatement = "SELECT * FROM $thisTable"; // query
+        $carResult = $connection->query($carsSqlStatement); // return result
 
-        echo ("
+        print ("
             <div class='mb-3 px-2'>
                 <img src='img/inventory-banner.png' width='100%'>
                 <div class='pt-4'>
@@ -80,7 +87,7 @@
             echo "  </div>";
         }
         echo "</div>";
-
+        $connection->close();
      ?>
 
     <?php include("inc/footer.php") ?>
