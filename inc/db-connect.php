@@ -1,51 +1,23 @@
-<?php // Use this connection script to access your student MySQL database
+<?php
+error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+include "../config.php";
 
-// Set needed variables to run this script
-$myHost   = 'csc269-01.hcc-computerscience.com'; 
-$thisHost = $_SERVER['HTTP_HOST'];                  // Gets the current HOST name
+//create db connection
+$connection = new mysqli($DBHOST, $DBUSER, $DBPASS);
 
-$testOn   = false;               // Set to true to show variables, Keep it "false" most of the time.
-$isError  = false;              // Used for error handling
-
-// Set the database access information as constants based on SERVER:
-switch ($thisHost){
-	case 'localhost':
-		define('DB_USER',     'student01');                
-		define('DB_PASSWORD', 'LearnDataBase3000');        // Verify password is correct
-		define('DB_HOST',     'localhost');                // Use 'localhost' as the DB_HOST
-		define('DB_NAME',     'student01');                
-		break;
-	case $myHost:       
-		define('DB_USER',     'hcccomps_stu01');           
-		define('DB_PASSWORD', 'LearnDataBase3000');        // Verify password is correct
-		define('DB_HOST',     'localhost');                // Use 'localhost' as the DB_HOST
-		define('DB_NAME',     'hcccomps_studentDB-01');    
-		break;
-	default:
-		$isError      = true;                              // This means THERE IS AN ERROR
-		$errorMessage = "<h4 class='error'>ERROR: $thisHost not in configuration setup. Check \$myHost variable.</h4>\n";
+if ($connection->$connect_error){
+  die("connection failed: " . $connection->connect_error);
 }
 
-if ($isError) {	print $errorMessage; }    // Prints $errorMessage;
+$sql = "SHOW DATABASE LIKE '$DBNAME'";
+$result = $connection->query($sql);
 
-if ($testOn) {
-	print "<p>Hostname: $thisHost</p>\n";
-	print '<p><b>User:</b> '.DB_USER.' <br><b>Password:</b> '.DB_PASSWORD.
-		  '<br><b>Host:</b> '.DB_HOST.'<br><b>Database:</b>'.DB_NAME.'</p>';
+if ($result->num_rows == 0) {
+  $sql_querry = "CREATE DATABASE $DBNAME";
+  if ($connection->query($sql_querry) === TRUE) {
+    echo "Database $DBNAME has been created";
+  }
 }
-
-	// Create database connection 
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME);
-
-	if (mysqli_connect_errno()) {
-		$connectFlag = false;
-		print "<h4 class='error'>Could not connect to MySQL: </h4>\n";
-		print "<h4>Error Message: " . mysqli_connect_error() . "</h4>\n";
-	} else { 
-		$connectFlag = true; 
-	    mysqli_set_charset($dbc, 'utf8');  // Set the encoding:
-	}
-
-
 
 ?>
