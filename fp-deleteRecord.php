@@ -17,7 +17,7 @@
 <hr>
 <?php // ----------------------------------------- START of PHP CODE
 print "<div class='row'><div class='col-md-12'>";      //  One <row> and <col> for this page
-include("inc/db-connect.php");                     // Connect to database ($dbc)
+include "inc/db-connect.php";                     // Connect to database ($dbc)
 //echo "<h3 class='success'>Process started.</h3>";
 
 $thisTable = $_GET['thisTable'];
