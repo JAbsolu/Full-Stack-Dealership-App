@@ -50,13 +50,13 @@
             </span>
             <div class="col-md-5 px-0">
                <div class="text-center">
-                  <a href="inventory.php"> <img src="https://tinyurl.com/yfzycd2n" alt="2023 Volkswagen Tiguan" width="100%" class="img-hover"></a>
+                  <a href="inventory.php"> <img src="img/Atlas.png" alt="2023 Volkswagen Tiguan" width="100%" class="img-hover"></a>
                </div>
             </div>
             <div class="col-md-7 flex-column ps-1 mt-1">
                <div class='m-3 mx-0 mt-1'>
                   <a href="inventory.php" class="d-flex text-decoration-none text-black">
-                     <img src="https://tinyurl.com/t7tumvwx" alt="2023 Volkswagen atlas" width="30.5%" class="img-hover">
+                     <img src="img/tiguan.png" alt="2023 Volkswagen atlas" width="27%" class="img-hover">
                      <div class="ps-4">
                         <h5 class='h5 fw-bold m-0'>The 2023 Atlas</h5>
                         <p class='fs-5 fw-light'>The Family SUV</p>
@@ -65,7 +65,7 @@
                </div>
                <div class='m-3 mx-0 mt-0'>
                   <a href="inventory.php" class="d-flex text-decoration-none text-black">
-                     <img src="https://tinyurl.com/ww2m646v" alt="2023 Volkswagen atlas" width="30.5%" class="img-hover">
+                     <img src="img/arteon.png" alt="2023 Volkswagen atlas" width="27%" class="img-hover">
                      <div class="ps-4">
                         <h5 class='h5 fw-bold m-0'>The 2023 Atlas Cross Sport</h5>
                         <p class='fs-5 fw-light'>The Sport SUV</p>
@@ -74,7 +74,7 @@
                </div>
                <div class='m-3 mx-0 mt-0'>
                   <a href="inventory.php" class="d-flex text-decoration-none text-black">
-                     <img src="https://tinyurl.com/swnj72th" alt="2023 Volkswagen atlas" width="30.5%" class="img-hover">
+                     <img src="img/taos.png" alt="2023 Volkswagen atlas" width="27%" class="img-hover">
                      <div class="ps-4">
                         <h5 class='h5 fw-bold m-0'>All Vehicles</h5>
                         <p class='fs-5 fw-light'>Explore all VW Models</p>
