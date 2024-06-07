@@ -1,5 +1,8 @@
-<?php include("inc/project-functions.php"); ?>
-    <?php include("inc/db-connect.php"); ?>
+<?php 
+    include "config.php";
+    include "inc/project-functions.php";
+    include "inc/db-connect.php"; 
+?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -21,9 +24,10 @@
         <?php include("inc/800-nav.php"); ?>
     
         <?php
+            $connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
             $thisTable = "cars";
             $sqlStatement = "SELECT * FROM $thisTable";
-            $result = mysqli_query($dbc, $sqlStatement);
+            $result = $connection->query($sqlStatement);
     
             if (!isset($_GET['linkClicked']) && $_GET['linkClicked'] == 'true') {
                 
