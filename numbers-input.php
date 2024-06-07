@@ -1,5 +1,8 @@
-<?php include("inc/db-connect.php"); ?>
-<?php include("inc/project-functions.php"); ?>
+<?php 
+   include "config.php";
+   include "inc/db-connect.php";
+   include "inc/project-functions.php"; 
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -38,9 +41,10 @@
                <label for="trade"> Trade value</label> <br>
                <input type="text" name="trade" placeholder="Trade value" required class='w-100 py-2 px-1 my-1 fs-6'><br>
                <?php 
+                        $connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
                         $cars = "cars";
                         $sqlStatement = "SELECT * FROM $cars";
-                        $result = mysqli_query($dbc, $sqlStatement);
+                        $result = $connection->query($sqlStatement);
                         $options = "";
                         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                             $year = $row['carYear'];
@@ -65,7 +69,7 @@
                   <input class="w-100 py-2 px-1 fs-6" type="text" value="" name="interest" placeholder="Enter interest rate"/><br>
                   <!-- loan terms -->
                   <label for="" class='my-1'>Loan terms</label> <br>
-                  <select class="w-100 fs-2" name="term" style="padding: 5px;">
+                  <select class="w-100" name="term" style="padding: 5px;">
                      <option name="36" value="36 Months" class='my-2' required>36 Months</option>
                      <option name="48" value="38 Months" class='my-2' required> 48 Months</option>
                      <option name="60" value="60 Months" class='my-2' required>60 Months</option>
