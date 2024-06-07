@@ -1,5 +1,6 @@
-<?php include("inc/db-connect.php"); ?>
-<?php include("inc/project-functions.php"); ?>
+<?php include "config.php"; ?>
+<?php include "inc/db-connect.php"; ?>
+<?php include "inc/project-functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -27,18 +28,19 @@
                    $formMessage          = $_POST['message'];
                    $vehicle              = $_POST['vehicle"'];
 
+                   $connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
+
                    $cars = "cars";
                    $sqlStatement = "SELECT * FROM $cars";
-                   $result = mysqli_query($dbc, $sqlStatement);
+                   $result = $connection->query($sqlStatement);
                    $options = "";
-                   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                   while ($row = $result->fetch_assoc()) {
                        $year = $row['carYear'];
                        $make = $row['make'];
                        $model = $row['model'];
                        $trim = $row['carTrim'];
                        $price = $row['price'];
                        $formatted_price = number_format($price, 2); //format the price
-
                        $vehicle = "$year $make $model $trim - $$formatted_price"; // formatted the vehicle to show the full year make model trim and price
                        $selected_vehicle .= "<option value='$vehicle'>$vehicle</option>";
                    }
@@ -65,7 +67,7 @@
                   mail($to2,$subject2,$message2,$headers2); 
                
                // ---------------------------------------- This is output to the user
-               echo ("
+               print ("
                    <div class='bg-secondary text-light p-4'>
                     <h3 class='text-light'>Thank you for contacting us</h3>
                     <p class='fw-light'>
@@ -73,9 +75,9 @@
                     </p>
                   </div>
                ");
-               echo "<div class='row p-5 bg-light'>";
-               echo "<div class='col-md-6'>";
-                   echo ("
+               print "<div class='row p-5 bg-light'>";
+               print "<div class='col-md-6'>";
+                   print ("
                      <h3 class='h3 pt-4 m-0'>Hello $first_name  $last_name,</h3>
                     <p class='fs-6 px-0 pt-2 lh-lg fw-normal'>
                       Thank you inquiring about the $year $make $model $trim. <br>
@@ -84,8 +86,8 @@
                       or your privided phone number at <b>$phone_number</b>
                    </p>
                    ");
-              echo "</div>";
-              echo ("
+              print "</div>";
+              print ("
                   <div class='col-md-6 d-flex flex-column justify-content-center align-items-center text-start'>
                     <span>
                        <h1 class='text-blue px-0 pt-4'>Lease your Brand New Volkswagen Today.</h1>
@@ -94,7 +96,7 @@
                     <img src='img/jetta.png' class='img-fluid' >
                   </div>
               ");
-              echo "</div>";
+              print "</div>";
                  // ------------------------------------------ End screen output 
 
                } else {                                  
@@ -131,23 +133,27 @@
                        </div>
                        <!-- se;ect dropdown -->
                        <?php 
+                        $connection = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
+                        // Check connection
                         $cars = "cars";
                         $sqlStatement = "SELECT * FROM $cars";
-                        $result = mysqli_query($dbc, $sqlStatement);
+                        $result = $connection->query($sqlStatement);
                         $options = "";
-                        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                            $year = $row['carYear'];
-                            $make = $row['make'];
-                            $model = $row['model'];
-                            $trim = $row['carTrim'];
-                            $price = $row['price'];
-                            $formatted_price = number_format($price, 2); //format the price
+                        if ($result->num_rows > 0) {
+                           while ($row = $result->fetch_assoc()) {
+                               $year = $row['carYear'];
+                               $make = $row['make'];
+                               $model = $row['model'];
+                               $trim = $row['carTrim'];
+                               $price = $row['price'];
+                               $formatted_price = number_format($price, 2); //format the price
 
-                            $vehicle = "$year $make $model $trim - $$formatted_price"; // formatted the vehicle to show the full year make model trim and price
-                            $selected_vehicle .= "<option value='$vehicle'>$vehicle</option>";
+                               $vehicle = "$year $make $model $trim - $$formatted_price"; // formatted the vehicle to show the full year make model trim and price
+                               $selected_vehicle .= "<option value='$vehicle'>$vehicle</option>";
+                           }
                         }
-                        echo "<label class='form-label' for='vehicle'>Vehicle</label>";
-                        echo ("
+                        print "<label class='form-label' for='vehicle'>Vehicle</label>";
+                        print ("
                              <select class='form-select form-select-md mb-4 mt-2' aria-label='.form-select-sm' for='vehicle'>
                                $selected_vehicle
                              </select>
